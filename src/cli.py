@@ -169,7 +169,7 @@ def main():
             try:
                 bowtie = subprocess.Popen(bowtie2_command, stdout=subprocess.PIPE)
 
-                sorted = subprocess.run([
+                subprocess.run([
                     "samtools","sort", "-o","{}.sorted.sam".format(args.outputPrefix), "-"], 
                     stdin = bowtie.stdout, check = True)
                 bowtie.stdout.close()
